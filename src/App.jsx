@@ -309,9 +309,9 @@ const Navbar = ({ current, onNavigate }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const handle = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handle);
-    return () => window.removeEventListener('scroll', handle);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const menu = [
@@ -322,35 +322,89 @@ const Navbar = ({ current, onNavigate }) => {
     { label: 'Contato', id: 'contact' }
   ];
 
+  // Variantes para animação da cortina
+  const curtainVariants = {
+    closed: { y: '-100%', transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } },
+    open: { y: 0, transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } }
+  };
+
+  const linkVariants = {
+    closed: { opacity: 0, y: 20 },
+    open: (i) => ({ 
+      opacity: 1, 
+      y: 0, 
+      transition: { delay: 0.5 + (i * 0.1), duration: 0.5 } 
+    })
+  };
+
   return (
-    <nav className={`fixed top-0 w-full z-[200] transition-all duration-1000 ${scrolled ? 'bg-[#F9F7F2]/95 backdrop-blur-md py-4 md:py-6 shadow-sm' : 'bg-transparent py-6 md:py-10'}`}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
-        <div className="cursor-pointer group" onClick={() => onNavigate('home')}>
-          <h1 style={{ fontFamily: config.fonts.serif }} className="text-lg md:text-2xl tracking-[0.2em] md:tracking-[0.3em] font-light text-[#322A26] uppercase">Daniela Simão</h1>
-          <div className="h-[1px] w-0 group-hover:w-full bg-[#A68966] transition-all"></div>
+    <>
+      <nav className={`fixed top-0 w-full z-[200] transition-all duration-1000 ${scrolled ? 'bg-[#F9F7F2]/95 backdrop-blur-md py-4 md:py-6 shadow-sm' : 'bg-transparent py-6 md:py-10'}`}>
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
+          <div className="cursor-pointer group" onClick={() => onNavigate('home')}>
+            <h1 style={{ fontFamily: config.fonts.serif }} className="text-lg md:text-2xl tracking-[0.2em] md:tracking-[0.3em] font-light text-[#322A26] uppercase">Daniela Simão</h1>
+            <div className="h-[1px] w-0 group-hover:w-full bg-[#A68966] transition-all"></div>
+          </div>
+          
+          <div className="hidden md:flex space-x-8 lg:space-x-12">
+            {menu.map((item) => (
+              <button key={item.id} onClick={() => onNavigate(item.id)} className={`text-[8px] lg:text-[9px] uppercase tracking-[0.3em] lg:tracking-[0.4em] font-medium transition-all ${current === item.id ? 'text-[#A68966]' : 'text-[#322A26]/60 hover:text-[#A68966]'}`}>
+                {item.label}
+              </button>
+            ))}
+          </div>
+
+          <button className="md:hidden text-[#322A26] p-2 relative z-[300]" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
         </div>
-        <div className="hidden md:flex space-x-8 lg:space-x-12">
-          {menu.map((item) => (
-            <button key={item.id} onClick={() => onNavigate(item.id)} className={`text-[8px] lg:text-[9px] uppercase tracking-[0.3em] lg:tracking-[0.4em] font-medium transition-all ${current === item.id ? 'text-[#A68966]' : 'text-[#322A26]/60 hover:text-[#A68966]'}`}>
-              {item.label}
-            </button>
-          ))}
-        </div>
-        <button className="md:hidden text-[#322A26] p-2" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
+      </nav>
+
       <AnimatePresence>
         {isOpen && (
-          <motion.div initial={{ opacity: 0, x: '100%' }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: '100%' }} className="fixed inset-0 bg-[#F9F7F2] z-[250] p-8 md:p-12 flex flex-col justify-center space-y-10 md:space-y-12 md:hidden">
-            <button className="absolute top-6 right-6 md:top-10 md:right-10 p-2" onClick={() => setIsOpen(false)}><X size={32}/></button>
-            {menu.map((item) => (
-              <button key={item.id} onClick={() => { onNavigate(item.id); setIsOpen(false); }} className="text-4xl md:text-5xl font-serif italic text-[#322A26] text-left">{item.label}</button>
-            ))}
+          <motion.div 
+            variants={curtainVariants}
+            initial="closed"
+            animate="open"
+            exit="closed"
+            className="fixed inset-0 bg-[#F9F7F2] z-[250] flex flex-col items-center justify-center md:hidden"
+          >
+            {/* Background Texture for Curtain */}
+            <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+              <div className="grid grid-cols-6 h-full w-full">
+                {[...Array(6)].map((_, i) => (
+                  <div key={i} className="border-r border-[#322A26] h-full"></div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col space-y-8 text-center relative z-10">
+              {menu.map((item, i) => (
+                <motion.button 
+                  key={item.id}
+                  custom={i}
+                  variants={linkVariants}
+                  onClick={() => { onNavigate(item.id); setIsOpen(false); }} 
+                  className={`text-4xl md:text-5xl font-serif italic text-[#322A26] transition-colors hover:text-[#A68966] ${current === item.id ? 'text-[#A68966]' : ''}`}
+                >
+                  {item.label}
+                </motion.button>
+              ))}
+              
+              <motion.div 
+                initial={{ opacity: 0 }} 
+                animate={{ opacity: 1 }} 
+                transition={{ delay: 1 }}
+                className="pt-12 flex flex-col items-center space-y-4"
+              >
+                <div className="w-12 h-px bg-[#A68966]/40"></div>
+                <p className="text-[10px] uppercase tracking-[0.5em] text-[#322A26]/40 font-light">São Paulo • Tatuí</p>
+              </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </>
   );
 };
 
@@ -429,7 +483,7 @@ export default function App() {
             {view === 'home' && <HomeView onNavigate={setView} />}
             {view === 'contact' && <ContactFormView />}
             {(view === 'about' || view === 'expertise' || view === 'profile') && (
-              <div className="pt-32 md:pt-60 pb-24 md:pb-40 text-center px-6 md:px-12 max-w-4xl mx-auto min-h-[60vh] flex flex-col justify-center items-center">
+              <div className="pt-32 md:pt-60 pb-24 md:pb-40 text-center px-6 md:px-12 max-w-4xl mx-auto min-h-[60vh] flex flex-col justify-center items-center text-pretty">
                 <Heading subtitle="Manutenção" title="Conteúdo em revisão editorial." centered />
                 <button onClick={() => setView('home')} className="mt-12 md:mt-20 text-[9px] md:text-[10px] uppercase tracking-[0.4em] md:tracking-[0.5em] text-[#A68966] border-b border-[#A68966] pb-2 transition-all hover:opacity-70">Voltar à Página Principal</button>
               </div>
