@@ -78,7 +78,7 @@ const WhatsAppCTA = () => (
     <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
       <div className="flex items-center space-x-8">
         <div className="h-16 w-px bg-[#A68966] opacity-30 hidden md:block"></div>
-        <div className="text-left max-w-xl">
+        <div className="text-left max-w-xl text-pretty">
           <p className="text-[9px] uppercase tracking-[0.4em] text-[#A68966] font-bold mb-2">Suporte Estratégico</p>
           <h3 style={{ fontFamily: config.fonts.serif }} className="text-2xl md:text-4xl text-[#322A26] font-light italic leading-tight">
             Precisa de apoio jurídico? <span className="text-[#A68966]">Vamos conversar.</span>
@@ -109,9 +109,9 @@ const LocationMap = () => {
     <div className="w-full h-full min-h-[350px] relative overflow-hidden rounded-sm shadow-2xl border border-[#322A26]/5">
       <div className="absolute top-4 left-4 md:top-6 md:left-6 z-10 flex flex-col space-y-2">
         <button onClick={() => setActiveTab('sp')} className={`px-4 py-2 md:px-6 md:py-3 text-[8px] uppercase tracking-widest border transition-all duration-500 ${activeTab === 'sp' ? 'bg-[#322A26] text-white' : 'bg-white/90 text-[#322A26] border-white/20 hover:bg-white'}`}>São Paulo</button>
-        <button onClick={() => setActiveTab('br')} className={`px-4 py-2 md:px-6 md:py-3 text-[8px] uppercase tracking-widest border transition-all duration-500 ${activeTab === 'br' ? 'bg-[#322A26] text-white' : 'bg-white/90 text-[#322A26] border-white/20 hover:bg-white'}`}>Atendimento Digital Brasil</button>
+        <button onClick={() => setActiveTab('br')} className={`px-4 py-2 md:px-6 md:py-3 text-[8px] uppercase tracking-widest border transition-all duration-500 ${activeTab === 'br' ? 'bg-[#322A26] text-white' : 'bg-white/90 text-[#322A26] border-white/20 hover:bg-white'}`}>Consultoria Online Brasil</button>
       </div>
-      <iframe src={viewports[activeTab]} className="w-full h-full grayscale opacity-70 contrast-125 brightness-90 saturate-0" loading="lazy"></iframe>
+      <iframe src={viewports[activeTab]} className="w-full h-full grayscale opacity-70 contrast-125 brightness-90 saturate-0" loading="lazy" title="Mapa Localização"></iframe>
     </div>
   );
 };
@@ -125,22 +125,22 @@ const HomeView = ({ onNavigate }) => {
       <section className="min-h-screen flex items-center px-6 lg:px-12 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-full lg:w-3/5 h-full -z-10">
           <motion.div style={{ y: useTransform(scrollYProgress, [0, 0.2], [0, 100]) }} className="w-full h-full relative">
-            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=1600" className="w-full h-full object-cover opacity-50 mix-blend-multiply" alt="Jurídico Luxo" />
+            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=1600" className="w-full h-full object-cover opacity-50 mix-blend-multiply" alt="Ambiente Profissional" />
             <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#F9F7F2]/60 to-[#F9F7F2]"></div>
           </motion.div>
         </div>
         
         <div className="max-w-7xl mx-auto w-full pt-20 md:pt-32 pb-12">
-          <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.8 }} className="max-w-5xl text-left">
-            <div className="flex items-center space-x-4 mb-8 md:mb-12">
+          <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.8 }} className="max-w-6xl text-left">
+            <div className="flex items-center space-x-4 mb-8 md:mb-10">
                 <div className="h-[1px] w-[60px] md:w-[100px] bg-[#A68966]"></div>
                 <span className="text-[10px] md:text-[12px] uppercase tracking-[0.4em] text-[#A68966] font-bold">OAB/SP 496.897</span>
             </div>
-            <h1 style={{ fontFamily: config.fonts.serif }} className="text-5xl md:text-8xl lg:text-[9rem] text-[#322A26] leading-[1.1] md:leading-[0.85] font-light mb-12 select-none">
+            <h1 style={{ fontFamily: config.fonts.serif }} className="text-4xl md:text-6xl lg:text-7xl xl:text-[5rem] text-[#322A26] leading-[1.2] md:leading-[1.1] font-light mb-12 select-none">
               Rigor técnico. <br />
               <span className="italic text-[#A68966]">Soluções jurídicas personalizadas.</span>
             </h1>
-            <div className="flex flex-col md:flex-row items-start md:items-center space-y-10 md:space-y-0 md:space-x-20">
+            <div className="flex flex-col md:flex-row items-start md:items-center space-y-10 md:space-y-0 md:space-x-20 text-pretty">
               <button onClick={() => onNavigate('contact')} className="w-full md:w-auto group relative px-10 py-6 md:px-14 md:py-7 bg-[#322A26] text-[#F9F7F2] text-[10px] uppercase tracking-[0.4em] md:tracking-[0.5em] overflow-hidden shadow-2xl">
                 <motion.div className="absolute inset-0 bg-[#A68966] -translate-x-full group-hover:translate-x-0 transition-transform duration-700"></motion.div>
                 <span className="relative z-10">Falar com a advogada</span>
@@ -158,7 +158,7 @@ const HomeView = ({ onNavigate }) => {
       <InfiniteBanner text="BRASIL • ESTRATÉGIA • PERSONALIZAÇÃO • SIGILO • RIGOR • EXCLUSIVIDADE • DANIELA SIMÃO" />
 
       <section className="py-24 md:py-32 bg-white">
-         <div className="max-w-4xl mx-auto text-center px-6">
+         <div className="max-w-4xl mx-auto text-center px-6 text-pretty">
             <Heading subtitle="Propósito" title="Cada caso é único. Sua história merece atenção, estratégia e dedicação." centered />
             <p className="text-xl md:text-3xl lg:text-4xl font-serif italic text-[#322A26] font-light leading-relaxed mb-12 md:mb-16">
               "No escritório Daniela Simão, cada caso é uma biografia. Por isso, cada estratégia é construída de forma exclusiva, com atenção minuciosa aos detalhes e às particularidades de cada cliente."
@@ -167,7 +167,7 @@ const HomeView = ({ onNavigate }) => {
          </div>
       </section>
 
-      <section className="py-24 md:py-32 px-6 lg:px-12 max-w-7xl mx-auto w-full">
+      <section className="py-24 md:py-32 px-6 lg:px-12 max-w-7xl mx-auto w-full text-pretty">
          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 border-b border-[#322A26]/10 pb-10">
             <Heading subtitle="Especialidades" title="Áreas de Atuação" />
             <button onClick={() => onNavigate('expertise')} className="mt-4 md:mb-12 flex items-center space-x-4 text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.4em] text-[#A68966] group">
@@ -182,12 +182,12 @@ const HomeView = ({ onNavigate }) => {
               { label: "Consumidor", Icon: ShoppingBag, num: "III" },
               { label: "Trabalhista Empresarial", Icon: Briefcase, num: "IV" }
             ].map((item, i) => (
-              <motion.div key={i} whileHover={{ y: -10 }} className="relative bg-[#EFECE6]/30 p-10 group cursor-pointer border-t border-transparent hover:border-[#A68966] transition-all h-full flex flex-col items-center text-center" onClick={() => onNavigate('expertise')}>
+              <motion.div key={i} whileHover={{ y: -10 }} className="relative bg-[#EFECE6]/30 p-8 md:p-10 group cursor-pointer border-t border-transparent hover:border-[#A68966] transition-all h-full flex flex-col items-center text-center" onClick={() => onNavigate('expertise')}>
                 <span className="text-[10px] text-[#A68966] font-bold mb-8 block tracking-widest">{item.num}</span>
-                <item.Icon size={40} strokeWidth={1} className="text-[#322A26] mb-8 opacity-60 group-hover:opacity-100 transition-opacity" />
+                <item.Icon size={40} strokeWidth={1} className="text-[#322A26] mb-6 opacity-60 group-hover:opacity-100 transition-opacity" />
                 <h3 style={{ fontFamily: config.fonts.serif }} className="text-xl md:text-2xl text-[#322A26] mb-4 font-light group-hover:italic transition-all">{item.label}</h3>
-                <div className="mt-auto pt-8 flex items-center space-x-2 text-[8px] md:text-[9px] uppercase tracking-widest text-[#A68966] transition-all">
-                   <span>Saiba Mais</span>
+                <div className="mt-auto pt-6 flex items-center space-x-2 text-[8px] md:text-[9px] uppercase tracking-widest text-[#A68966] transition-all">
+                   <span>Acessar</span>
                    <ArrowRight size={12} />
                 </div>
               </motion.div>
@@ -203,15 +203,15 @@ const HomeView = ({ onNavigate }) => {
                ))}
             </div>
          </div>
-         <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24 items-center relative z-10">
+         <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24 items-center relative z-10 text-pretty">
             <div className="lg:col-span-5 relative flex justify-center">
                <motion.div initial={{ scale: 1.05, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} transition={{ duration: 1.5 }} className="aspect-[4/5] w-full max-w-sm md:max-w-md overflow-hidden shadow-2xl relative z-10">
-                  <img src="https://i.ibb.co/nsQ6Msv0/ceo1.jpg" alt="Daniela Simão" className="w-full h-full object-cover" />
+                  <img src="https://i.ibb.co/nsQ6Msv0/ceo1.jpg" alt="Dra. Daniela Simão" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#322A26]/60 to-transparent"></div>
                </motion.div>
                <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 w-24 h-24 md:w-32 md:h-32 border-b border-r border-[#A68966]/40 z-0"></div>
             </div>
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-7 text-left">
                <div className="flex items-center space-x-4 mb-6">
                    <Award size={18} className="text-[#A68966]" />
                    <span className="text-[10px] md:text-[12px] uppercase tracking-[0.4em] text-[#A68966] font-bold">Inscrição OAB/SP 496.897</span>
@@ -228,17 +228,17 @@ const HomeView = ({ onNavigate }) => {
          </div>
       </section>
 
-      <section className="py-24 md:py-32 bg-[#EFECE6] text-[#322A26] relative">
+      <section className="py-24 md:py-32 bg-[#EFECE6] text-[#322A26] relative text-pretty">
          <div className="max-w-4xl mx-auto px-6 text-center">
             <Quote size={40} className="mx-auto mb-10 md:mb-12 text-[#A68966] opacity-40 md:w-12 md:h-12" strokeWidth={1} />
-            <h2 style={{ fontFamily: config.fonts.serif }} className="text-2xl md:text-4xl lg:text-5xl font-light italic leading-tight mb-12 md:mb-14">
+            <h2 style={{ fontFamily: config.fonts.serif }} className="text-2xl md:text-4xl lg:text-5xl font-light italic leading-tight mb-12 md:mb-14 text-balance">
                "Soluções jurídicas personalizadas, com técnica, estratégia e foco em resultados concretos."
             </h2>
             <div className="w-16 md:w-20 h-px bg-[#A68966] mx-auto opacity-40"></div>
          </div>
       </section>
 
-      <section className="py-24 md:py-32 px-6 lg:px-12 max-w-7xl mx-auto w-full text-left">
+      <section className="py-24 md:py-32 px-6 lg:px-12 max-w-7xl mx-auto w-full text-left text-pretty">
          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24 items-center">
             <div className="lg:col-span-5">
                <Heading subtitle="Digital e Estratégico" title="Digital e Estratégico" />
@@ -281,7 +281,7 @@ const AboutView = () => (
     <>
       <section className="pt-32 md:pt-48 pb-24 md:pb-32 px-6 lg:px-12 max-w-7xl mx-auto bg-[#F9F7F2]">
         <Heading subtitle="O Escritório" title="A excelência da advocacia boutique." />
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center text-pretty">
           <div className="space-y-10 text-xl font-light leading-relaxed text-[#322A26]">
             <p>Acreditamos que o Direito boutique é a única forma de garantir excelência real. Fugimos da escala para focar na profundidade de cada demanda apresentada.</p>
             <p>O escritório Daniela Simão é fundamentado no compromisso com a exclusividade e o sigilo. Cada cliente recebe um atendimento direto, eliminando intermediários para assegurar que a estratégia jurídica seja discutida pessoalmente.</p>
@@ -304,7 +304,7 @@ const AboutView = () => (
               <img 
                 src="https://i.ibb.co/PGfDQsmb/ceo2.jpg" 
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
-                alt="Daniela Simão Escritório" 
+                alt="Escritório Daniela Simão" 
               />
               <div className="absolute inset-0 bg-[#322A26]/5 mix-blend-multiply"></div>
               <div className="absolute inset-0 bg-gradient-to-t from-[#322A26]/20 to-transparent"></div>
@@ -356,7 +356,7 @@ const ProfileView = () => (
           <div className="lg:col-span-5 relative group flex justify-center">
             <div className="absolute -top-6 -left-6 w-full h-full max-w-sm md:max-w-md border-2 border-[#A68966] z-0 opacity-40 transition-transform duration-1000 group-hover:translate-x-2 group-hover:translate-y-2"></div>
             
-            <div className="relative aspect-[4/5] w-full max-w-sm md:max-w-md overflow-hidden shadow-2xl z-10 text-left">
+            <div className="relative aspect-[4/5] w-full max-w-sm md:max-w-md overflow-hidden shadow-2xl z-10 text-left text-pretty">
               <img 
                 src="https://i.ibb.co/hJVW9jCz/ceo3.jpg" 
                 alt="Perfil Daniela Simão" 
@@ -368,7 +368,7 @@ const ProfileView = () => (
             <div className="absolute -right-4 top-1/4 h-1/2 w-px bg-[#A68966] z-20 hidden md:block"></div>
           </div>
 
-          <div className="lg:col-span-7 text-left">
+          <div className="lg:col-span-7 text-left text-pretty">
             <div className="flex items-center space-x-4 mb-6">
                <Award size={18} className="text-[#A68966]" />
                <span className="text-[11px] uppercase tracking-[0.4em] text-[#A68966] font-bold">OAB/SP 496.897</span>
@@ -398,26 +398,26 @@ const ProfileView = () => (
 const ContactFormView = () => (
   <>
     <section className="pt-32 md:pt-48 pb-24 md:pb-32 px-6 lg:px-12 max-w-7xl mx-auto bg-[#F9F7F2]">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24 text-pretty">
         <div className="lg:col-span-5 text-left">
           <Heading subtitle="Contato" title="Atendimento Especializado." />
-          <div className="space-y-10 md:space-y-16 mt-10 md:mt-20">
+          <div className="space-y-10 md:space-y-16 mt-10 md:mt-20 text-pretty">
             <div className="flex items-start space-x-6 md:space-x-8">
               <div className="w-12 h-12 md:w-14 md:h-14 bg-[#322A26] flex items-center justify-center text-[#A68966] shrink-0">
                  <Phone size={22} strokeWidth={1} />
               </div>
               <div>
-                <p className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.4em] text-[#A68966] font-bold mb-2 md:mb-4">Directo</p>
-                <a href="tel:+5511966020206" className="text-xl md:text-2xl font-light text-[#322A26] tracking-widest hover:text-[#A68966] transition-colors">+55 11 96602-0206</a>
+                <p className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.4em] text-[#A68966] font-bold mb-2 md:mb-4 text-left">Directo</p>
+                <a href="tel:+5511966020206" className="text-xl md:text-2xl font-light text-[#322A26] tracking-widest hover:text-[#A68966] transition-colors text-left text-pretty">+55 11 96602-0206</a>
               </div>
             </div>
-            <div className="flex items-start space-x-6 md:space-x-8">
+            <div className="flex items-start space-x-6 md:space-x-8 text-pretty">
               <div className="w-12 h-12 md:w-14 md:h-14 bg-[#322A26] flex items-center justify-center text-[#A68966] shrink-0">
                  <Mail size={22} strokeWidth={1} />
               </div>
               <div>
-                <p className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.4em] text-[#A68966] font-bold mb-2 md:mb-4">Canal Oficial</p>
-                <p className="text-lg md:text-2xl font-light text-[#322A26] break-all">danielasimao@adv.oabsp.org.br</p>
+                <p className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.4em] text-[#A68966] font-bold mb-2 md:mb-4 text-left">Canal Oficial</p>
+                <p className="text-lg md:text-2xl font-light text-[#322A26] break-all text-left text-pretty">danielasimao@adv.oabsp.org.br</p>
               </div>
             </div>
             <div className="pt-8 border-t border-[#322A26]/10 flex items-center space-x-4">
@@ -425,27 +425,27 @@ const ContactFormView = () => (
                   <Award size={20} />
                </div>
                <div>
-                  <p className="text-[10px] uppercase tracking-widest text-[#A68966] font-bold">Inscrição Profissional</p>
-                  <p className="text-lg font-light text-[#322A26]">OAB/SP 496.897</p>
+                  <p className="text-[10px] uppercase tracking-widest text-[#A68966] font-bold text-pretty">Inscrição Profissional</p>
+                  <p className="text-lg font-light text-[#322A26] text-pretty">OAB/SP 496.897</p>
                </div>
             </div>
           </div>
         </div>
-        <div className="lg:col-span-7 bg-white p-8 md:p-16 lg:p-24 shadow-2xl border border-[#322A26]/5 text-left">
+        <div className="lg:col-span-7 bg-white p-8 md:p-16 lg:p-24 shadow-2xl border border-[#322A26]/5">
           <form className="space-y-10 md:space-y-16" onSubmit={e => e.preventDefault()}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 text-left">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
               <div className="flex flex-col">
                 <label className="text-[8px] md:text-[9px] uppercase tracking-widest text-[#A68966] font-bold mb-2">Identificação</label>
                 <input type="text" placeholder="Nome Completo" className="w-full border-b border-[#322A26]/20 py-2 md:py-4 focus:border-[#A68966] outline-none bg-transparent font-medium text-[10px] md:text-[11px] uppercase tracking-widest text-[#322A26] placeholder:text-[#322A26]/40 transition-all" />
               </div>
-              <div className="flex flex-col">
-                <label className="text-[8px] md:text-[9px] uppercase tracking-widest text-[#A68966] font-bold mb-2">Comunicação</label>
-                <input type="email" placeholder="Email Profissional" className="w-full border-b border-[#322A26]/20 py-2 md:py-4 focus:border-[#A68966] outline-none bg-transparent font-medium text-[10px] md:text-[11px] uppercase tracking-widest text-[#322A26] placeholder:text-[#322A26]/40 transition-all" />
+              <div className="flex flex-col text-pretty text-left">
+                <label className="text-[8px] md:text-[9px] uppercase tracking-widest text-[#A68966] font-bold mb-2 text-pretty text-left">Comunicação</label>
+                <input type="email" placeholder="Email Profissional" className="w-full border-b border-[#322A26]/20 py-2 md:py-4 focus:border-[#A68966] outline-none bg-transparent font-medium text-[10px] md:text-[11px] uppercase tracking-widest text-[#322A26] placeholder:text-[#322A26]/40 transition-all text-pretty text-left" />
               </div>
             </div>
-            <div className="flex flex-col">
-              <label className="text-[8px] md:text-[9px] uppercase tracking-widest text-[#A68966] font-bold mb-2">Resumo da Demanda</label>
-              <textarea rows="4" placeholder="Descreva brevemente sua demanda..." className="w-full border-b border-[#322A26]/20 py-2 md:py-4 focus:border-[#A68966] outline-none bg-transparent font-medium text-[10px] md:text-[11px] uppercase tracking-widest text-[#322A26] resize-none placeholder:text-[#322A26]/40 transition-all"></textarea>
+            <div className="flex flex-col text-pretty text-left">
+              <label className="text-[8px] md:text-[9px] uppercase tracking-widest text-[#A68966] font-bold mb-2 text-pretty text-left">Resumo da Demanda</label>
+              <textarea rows="4" placeholder="Descreva brevemente sua demanda..." className="w-full border-b border-[#322A26]/20 py-2 md:py-4 focus:border-[#A68966] outline-none bg-transparent font-medium text-[10px] md:text-[11px] uppercase tracking-widest text-[#322A26] resize-none placeholder:text-[#322A26]/40 transition-all text-pretty text-left"></textarea>
             </div>
             <button className="w-full py-6 md:py-8 bg-[#322A26] text-[#F9F7F2] text-[10px] md:text-[11px] uppercase tracking-[0.4em] md:tracking-[0.6em] font-bold hover:bg-[#A68966] transition-all duration-1000 shadow-xl">Enviar Solicitação Privada</button>
           </form>
@@ -491,7 +491,7 @@ const Navbar = ({ current, onNavigate }) => {
   return (
     <>
       <nav className={`fixed top-0 w-full z-[200] transition-all duration-1000 ${scrolled ? 'bg-[#F9F7F2]/95 backdrop-blur-md py-4 md:py-6 shadow-sm' : 'bg-transparent py-6 md:py-10'}`}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center text-left">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center text-pretty text-left text-pretty text-left">
           <div className="cursor-pointer group" onClick={() => onNavigate('home')}>
             <h1 style={{ fontFamily: config.fonts.serif }} className="text-lg md:text-2xl tracking-[0.2em] md:tracking-[0.3em] font-light text-[#322A26] uppercase">Daniela Simão</h1>
             <div className="h-[1px] w-0 group-hover:w-full bg-[#A68966] transition-all"></div>
@@ -521,30 +521,30 @@ const Navbar = ({ current, onNavigate }) => {
             exit="closed"
             className="fixed inset-0 bg-[#F9F7F2] z-[250] flex flex-col items-center justify-center md:hidden"
           >
-            <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+            <div className="absolute inset-0 opacity-[0.03] pointer-events-none text-pretty text-left">
               <div className="grid grid-cols-6 h-full w-full">
                 {[...Array(6)].map((_, i) => (
-                  <div key={i} className="border-r border-[#322A26] h-full"></div>
+                  <div key={i} className="border-r border-[#322A26] h-full text-pretty text-left"></div>
                 ))}
               </div>
             </div>
 
-            <div className="flex flex-col space-y-8 text-center relative z-10">
+            <div className="flex flex-col space-y-8 text-center relative z-10 text-pretty text-left">
               {menu.map((item, i) => (
                 <motion.button 
                   key={item.id}
                   custom={i}
                   variants={linkVariants}
                   onClick={() => { onNavigate(item.id); setIsOpen(false); }} 
-                  className={`text-4xl md:text-5xl font-serif italic text-[#322A26] transition-colors hover:text-[#A68966] ${current === item.id ? 'text-[#A68966]' : ''}`}
+                  className={`text-4xl md:text-5xl font-serif italic text-[#322A26] transition-colors hover:text-[#A68966] ${current === item.id ? 'text-[#A68966]' : ''} text-pretty text-left`}
                 >
                   {item.label}
                 </motion.button>
               ))}
               
-              <div className="pt-12 flex flex-col items-center space-y-4">
-                <div className="w-12 h-px bg-[#A68966]/40"></div>
-                <p className="text-[10px] uppercase tracking-[0.5em] text-[#322A26]/40 font-bold">Daniela Simão • OAB/SP 496.897</p>
+              <div className="pt-12 flex flex-col items-center space-y-4 text-pretty text-left">
+                <div className="w-12 h-px bg-[#A68966]/40 text-pretty text-left"></div>
+                <p className="text-[10px] uppercase tracking-[0.5em] text-[#322A26]/40 font-bold text-pretty text-center text-pretty text-left">Daniela Simão • OAB/SP 496.897</p>
               </div>
             </div>
           </motion.div>
@@ -555,36 +555,36 @@ const Navbar = ({ current, onNavigate }) => {
 };
 
 const Footer = ({ onNavigate }) => (
-  <footer className="bg-[#322A26] text-[#F9F7F2] pt-24 md:pt-40 pb-16 md:pb-20 px-6 lg:px-12 text-center relative overflow-hidden">
-    <div className="max-w-7xl mx-auto flex flex-col items-center relative z-10">
-      <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} className="mb-16 md:mb-32 w-full">
+  <footer className="bg-[#322A26] text-[#F9F7F2] pt-24 md:pt-40 pb-16 md:pb-20 px-6 lg:px-12 text-center relative overflow-hidden text-pretty text-left">
+    <div className="max-w-7xl mx-auto flex flex-col items-center relative z-10 text-left md:text-center text-pretty text-left">
+      <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} className="mb-16 md:mb-32 w-full text-pretty text-left">
         <h1 style={{ fontFamily: config.fonts.serif }} className="text-3xl md:text-8xl font-light tracking-[0.4em] mb-8 md:mb-12 uppercase text-white text-center">Daniela Simão</h1>
-        <div className="flex items-center justify-center space-x-6 md:space-x-12 opacity-40">
-           <div className="h-px w-12 md:w-24 bg-white"></div>
-           <p className="text-[8px] md:text-[10px] uppercase tracking-[0.8em] md:tracking-[1em] font-bold text-white">Advocacia Autoral • OAB/SP 496.897</p>
+        <div className="flex items-center justify-center space-x-6 md:space-x-12 opacity-40 text-pretty text-left">
+           <div className="h-px w-12 md:w-24 bg-white text-pretty text-left"></div>
+           <p className="text-[8px] md:text-[10px] uppercase tracking-[0.8em] md:tracking-[1em] font-bold text-white text-pretty">Advocacia Autoral • OAB/SP 496.897</p>
            <div className="h-px w-12 md:w-24 bg-white"></div>
         </div>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-24 border-t border-white/10 py-16 md:py-32 w-full text-[9px] md:text-[10px] uppercase tracking-[0.4em] md:tracking-[0.6em] font-light text-white/40">
-        <div className="flex flex-col items-center">
-           <h4 className="mb-8 md:mb-12 text-[#A68966] font-bold uppercase tracking-widest">Navegação</h4>
-           <ul className="space-y-6 md:space-y-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-24 border-t border-white/10 py-16 md:py-32 w-full text-[9px] md:text-[10px] uppercase tracking-[0.4em] md:tracking-[0.6em] font-light text-white/40 text-pretty text-left">
+        <div className="flex flex-col items-center md:items-center text-pretty text-left">
+           <h4 className="mb-8 md:mb-12 text-[#A68966] font-bold uppercase tracking-widest text-center text-pretty text-left">Navegação</h4>
+           <ul className="space-y-6 md:space-y-8 text-center md:text-center text-pretty text-left">
               <li><button onClick={() => onNavigate('about')} className="hover:text-white transition-colors">Escritório</button></li>
               <li><button onClick={() => onNavigate('expertise')} className="hover:text-white transition-colors">Especialidades</button></li>
               <li><button onClick={() => onNavigate('contact')} className="hover:text-white transition-colors">Contato Privado</button></li>
            </ul>
         </div>
-        <div className="flex flex-col items-center">
-           <h4 className="mb-8 md:mb-12 text-[#A68966] font-bold uppercase tracking-widest">Atendimento</h4>
-           <ul className="space-y-6 md:space-y-8 text-center">
+        <div className="flex flex-col items-center text-pretty text-pretty text-left">
+           <h4 className="mb-8 md:mb-12 text-[#A68966] font-bold uppercase tracking-widest text-center text-pretty text-left">Atendimento</h4>
+           <ul className="space-y-6 md:space-y-8 text-pretty text-center">
               <li>Online — Todo o Brasil</li>
               <li>Base São Paulo / Capital</li>
               <li>danielasimao@adv.oabsp.org.br</li>
            </ul>
         </div>
-        <div className="flex flex-col items-center">
-           <h4 className="mb-8 md:mb-12 text-[#A68966] font-bold uppercase tracking-widest">Conectar</h4>
+        <div className="flex flex-col items-center text-pretty text-left">
+           <h4 className="mb-8 md:mb-12 text-[#A68966] font-bold uppercase tracking-widest text-center text-pretty text-left">Conectar</h4>
            <div className="flex space-x-12 md:space-x-16 mt-4">
               <a href="https://www.instagram.com/danielasimao.advogada?igsh=enZpMHZyOXh6Nm1s&utm_source=qr" target="_blank" rel="noreferrer" className="hover:text-white transition-all"><Instagram size={24} /></a>
               <a href="https://wa.me/5511966020206" target="_blank" rel="noreferrer" className="hover:text-white transition-all"><ExternalLink size={24} /></a>
@@ -592,9 +592,9 @@ const Footer = ({ onNavigate }) => (
         </div>
       </div>
 
-      <div className="pt-12 md:pt-20 border-t border-white/5 w-full flex flex-col md:flex-row justify-between items-center text-[7px] md:text-[9px] uppercase tracking-[0.6em] md:tracking-[0.8em] text-white/20">
+      <div className="pt-12 md:pt-20 border-t border-white/5 w-full flex flex-col md:flex-row justify-between items-center text-[7px] md:text-[9px] uppercase tracking-[0.6em] md:tracking-[0.8em] text-white/20 text-pretty text-left">
         <p className="mb-6 md:mb-0">© 2026 Daniela Simão Advocacia. Direitos Reservados.</p>
-        <p className="italic font-serif text-[11px] md:text-[14px] normal-case tracking-normal text-[#A68966]/60 font-light italic">"Precisão Jurídica. Sigilo Absoluto."</p>
+        <p className="italic font-serif text-[11px] md:text-[14px] normal-case tracking-normal text-[#A68966]/60 font-light italic text-pretty text-center">"Precisão Jurídica. Sigilo Absoluto."</p>
       </div>
     </div>
   </footer>
