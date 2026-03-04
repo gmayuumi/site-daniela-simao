@@ -283,16 +283,16 @@ const AboutView = () => (
         <Heading subtitle="O Escritório" title="A excelência da advocacia boutique." />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center text-pretty">
           <div className="space-y-10 text-xl font-light leading-relaxed text-[#322A26]">
-            <p>Acreditamos que o Direito boutique é a única forma de garantir excelência real. Fugimos da escala para focar na profundidade de cada demanda apresentada.</p>
-            <p>O escritório Daniela Simão é fundamentado no compromisso com a exclusividade e o sigilo. Cada cliente recebe um atendimento direto, eliminando intermediários para assegurar que a estratégia jurídica seja discutida pessoalmente.</p>
+            <p>Acreditamos que a Boutique Direito é a única forma de garantir excelência real. Fugimos da escala para focar na profundidade de cada demanda apresentada.</p>
+            <p>O atendimento é conduzido de forma próxima e estratégica, com acompanhamento direto e atenção minuciosa em todas as etapas do caso.</p>
             <div className="grid grid-cols-2 gap-12 pt-10 border-t border-[#322A26]/10">
                <div>
                   <p className="text-sm font-bold text-[#A68966] uppercase tracking-widest mb-4">Metodologia</p>
-                  <p className="text-base font-light opacity-60">Foco total no diagnóstico preventivo e estratégico de riscos.</p>
+                  <p className="text-base font-light opacity-60">Análise estratégica do caso com foco em prevenir riscos e definir a melhor solução jurídica.</p>
                </div>
                <div>
                   <p className="text-sm font-bold text-[#A68966] uppercase tracking-widest mb-4">Público</p>
-                  <p className="text-base font-light opacity-60">Pessoas e empresas que exigem rigor técnico e confidencialidade.</p>
+                  <p className="text-base font-light opacity-60">Pessoas e empresas que buscam segurança jurídica, atendimento próximo e atuação técnica de qualidade.</p>
                </div>
             </div>
           </div>
@@ -375,8 +375,9 @@ const ProfileView = () => (
             </div>
             <Heading subtitle="A Fundadora" title="Daniela Simão" />
             <div className="space-y-10 text-xl font-light leading-relaxed text-[#322A26]">
-              <p>Advogada com foco na intersecção entre o rigor acadêmico e a prática jurídica ágil. Daniela Simão consolidou sua trajetória através do atendimento autoral e personalizado.</p>
-              <p>Sua prática é marcada pelo zelo técnico e pela busca incansável por resultados concretos para seus clientes, atuando com especial destaque em casos de alta complexidade em todo o território nacional através da advocacia digital.</p>
+              <p>Advogada com atuação orientada pela combinação entre rigor técnico e estratégia prática, Daniela Simão desenvolve soluções jurídicas personalizadas, com foco em resultados concretos e segurança para seus clientes.</p>
+              <p>Sua trajetória é marcada por um atendimento próximo e criterioso, no qual cada caso é analisado de forma individual, com profundidade e responsabilidade. A atuação se destaca pela condução estratégica das demandas, especialmente em situações que exigem precisão técnica e tomada de decisão assertiva.</p>
+              <p>Com presença digital e atendimento em todo o território nacional, seu trabalho é pautado na confiança, na confidencialidade e no compromisso com a excelência jurídica.</p>
               <div className="pt-16 flex space-x-16 border-t border-[#322A26]/10">
                 <div className="group cursor-default">
                   <p className="text-3xl font-serif text-[#A68966] group-hover:italic transition-all">Brasil</p>
