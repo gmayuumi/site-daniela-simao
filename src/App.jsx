@@ -161,7 +161,7 @@ const HomeView = ({ onNavigate }) => {
          <div className="max-w-4xl mx-auto text-center px-6 text-pretty">
             <Heading subtitle="Propósito" title="Cada caso é único. Sua história merece atenção, estratégia e dedicação." centered />
             <p className="text-xl md:text-3xl lg:text-4xl font-serif italic text-[#322A26] font-light leading-relaxed mb-12 md:mb-16">
-              "No escritório Daniela Simão, cada caso é uma biografia. Por isso, cada estratégia é construída de forma exclusiva, com atenção minuciosa aos detalhes e às particularidades de cada cliente."
+              No escritório Daniela Simão, cada caso é uma biografia. Por isso, cada estratégia é construída de forma exclusiva, com atenção minuciosa aos detalhes e às particularidades de cada cliente.
             </p>
             <div className="w-px h-16 md:h-20 bg-[#A68966]/20 mx-auto"></div>
          </div>
@@ -232,7 +232,7 @@ const HomeView = ({ onNavigate }) => {
          <div className="max-w-4xl mx-auto px-6 text-center">
             <Quote size={40} className="mx-auto mb-10 md:mb-12 text-[#A68966] opacity-40 md:w-12 md:h-12" strokeWidth={1} />
             <h2 style={{ fontFamily: config.fonts.serif }} className="text-2xl md:text-4xl lg:text-5xl font-light italic leading-tight mb-12 md:mb-14 text-balance">
-               "Soluções jurídicas personalizadas, com técnica, estratégia e foco em resultados concretos."
+               Soluções jurídicas personalizadas, com técnica, estratégia e foco em resultados concretos.
             </h2>
             <div className="w-16 md:w-20 h-px bg-[#A68966] mx-auto opacity-40"></div>
          </div>
