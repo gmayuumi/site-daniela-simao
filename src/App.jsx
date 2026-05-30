@@ -22,11 +22,11 @@ import {
 
 const config = {
   colors: {
-    primary: '#322A26',
-    secondary: '#A68966',
-    accent: '#1A1A1A',
+    primary: '#261F1B',
+    secondary: '#B88A58',
+    accent: '#111111',
     background: '#F9F7F2',
-    surface: '#EFECE6',
+    surface: '#E8E2D8',
   },
   fonts: {
     serif: "'Playfair Display', serif",
