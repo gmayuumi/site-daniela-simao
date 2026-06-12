@@ -98,6 +98,100 @@ const WhatsAppCTA = () => (
   </section>
 );
 
+
+const TestimonialsSection = () => {
+  const testimonials = [
+    {
+      name: "FL SEGURANÇAS Patrimonial",
+      text: "Quero parabenizar a Dra. pelo excelente trabalho prestado. Uma profissional extremamente atenciosa com seus clientes, sempre demonstrando dedicação, responsabilidade e comprometimento. Seu trabalho é muito bem organizado, conduzido com competência e profissionalismo. Sem dúvida, uma excelente advogada, que transmite confiança e segurança em tudo o que faz."
+    },
+    {
+      name: "Gabrielly Figueiredo Medeiros",
+      text: "Dra. Daniela simplesmente uma profissional espetacular! Uma mulher de muitos valores, sempre com muita clareza nas palavras, atenciosa, simpática, empática e sábia. A melhor escolha que eu fiz foi escolher ela pra lutar por mim!"
+    },
+    {
+      name: "Luciana Caires",
+      text: "A Dra. Daniela sempre demonstrou muita paciência e compreensão, mesmo diante de toda a turbulência do meu caso. Com sua postura tranquila e segura, conseguiu me transmitir calma e confiança em cada etapa do processo. Sinto-me muito bem representada e tranquila, pois percebo que tudo flui da melhor forma sob sua condução."
+    },
+    {
+      name: "Celia Santos",
+      text: "Advogada, com postura super profissional, dedicada ao caso e ao cliente, me orientou em todas as dúvidas que tive ao longo do processo. Parabéns pelo trabalho honesto e obrigada pelo empenho em meu caso."
+    },
+    {
+      name: "Thataalice Souza",
+      text: "Super indico, muito atenciosa, esclarecida, tirou todas minhas dúvidas. E com menos de 1 mês solucionou meu problema. Sem palavras para o trabalho eficiente."
+    },
+    {
+      name: "Bruna Santos",
+      text: "Ótima profissional!! Um trabalho moderno tornando-se mais acessível e disponível a quaisquer dúvidas que possam ocorrer, sendo um grande diferencial no decorrer do processo fazendo com que o mesmo se torne bem mais rápido do que o previsto."
+    }
+  ];
+
+  const googleBusinessLink = "https://share.google/7BqtnHgvoQedxItAS";
+
+  return (
+    <section className="py-24 md:py-32 px-6 lg:px-12 bg-white text-[#261F1B] relative overflow-hidden text-pretty">
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#B88A58]/40 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#B88A58]/40 to-transparent"></div>
+
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-20 items-end mb-16 md:mb-24">
+          <div className="lg:col-span-7">
+            <Heading subtitle="Avaliações" title="Confiança construída na prática." />
+          </div>
+          <div className="lg:col-span-5 text-left lg:text-right">
+            <p className="text-sm md:text-base font-light text-[#261F1B]/70 leading-relaxed">
+              Relatos de clientes que destacam a condução cuidadosa, a clareza nas orientações e a segurança transmitida em cada etapa do atendimento jurídico.
+            </p>
+            <a
+              href={googleBusinessLink}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center space-x-3 mt-8 px-7 py-4 bg-[#261F1B] text-[#F9F7F2] text-[9px] md:text-[10px] uppercase tracking-[0.35em] font-bold hover:bg-[#B88A58] transition-all duration-700 shadow-xl"
+            >
+              <span>Ver no Google</span>
+              <ExternalLink size={14} />
+            </a>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
+          {testimonials.map((testimonial, i) => (
+            <motion.article
+              key={testimonial.name}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: i * 0.06 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -8 }}
+              className="group bg-[#F9F7F2] border border-[#261F1B]/10 p-8 md:p-10 shadow-sm hover:shadow-2xl transition-all duration-700 flex flex-col min-h-[340px]"
+            >
+              <div className="flex items-center justify-between mb-8">
+                <div className="text-[#B88A58] tracking-[0.25em] text-sm">★★★★★</div>
+                <Quote size={26} strokeWidth={1} className="text-[#B88A58]/40 group-hover:text-[#B88A58] transition-colors" />
+              </div>
+
+              <p className="text-sm md:text-[15px] font-light leading-relaxed text-[#261F1B]/80 mb-10">
+                “{testimonial.text}”
+              </p>
+
+              <div className="mt-auto pt-8 border-t border-[#261F1B]/10">
+                <p style={{ fontFamily: config.fonts.serif }} className="text-lg md:text-xl font-light italic text-[#261F1B]">
+                  {testimonial.name}
+                </p>
+                <p className="text-[8px] md:text-[9px] uppercase tracking-[0.35em] text-[#B88A58] font-bold mt-3">
+                  Avaliação 5 estrelas
+                </p>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+
 const LocationMap = () => {
   const [activeTab, setActiveTab] = useState('sp');
   const viewports = {
@@ -227,6 +321,8 @@ const HomeView = ({ onNavigate }) => {
             </div>
          </div>
       </section>
+
+      <TestimonialsSection />
 
       <section className="py-24 md:py-32 bg-[#E8E2D8] text-[#261F1B] relative text-pretty">
          <div className="max-w-4xl mx-auto px-6 text-center">
